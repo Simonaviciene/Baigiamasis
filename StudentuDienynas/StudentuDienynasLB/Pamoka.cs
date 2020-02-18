@@ -61,31 +61,33 @@ namespace StudentuDienynasLB
             int metinisVidurkis = (PirmoTrimestroVidurkis() + AntroTrimestroVidurkis() + TrecioTrimestroVidurkis()) / 3;
             return metinisVidurkis;
         }
-        public void PridetiPazymi(int trimestroNr, int pazymys)
+
+        public void PridetiPirmoTrimestroPazymi(int pazymys)
         {
-            if(pazymys <= 0 || pazymys > 10)
+            if (pazymys <= 0 || pazymys > 10)
             {
                 return;
             }
-
-            if (trimestroNr == 1)
-            {
-                pazymiai1Trimestras.Add(pazymys);
-            }
-            else if (trimestroNr == 2)
-            {
-                pazymiai2Trimestras.Add(pazymys);
-            }
-            else if (trimestroNr == 3)
-            {
-                pazymiai3Trimestras.Add(pazymys);
-            }
-            else
-            {
-                throw new System.ArgumentException(string.Format("Nebuna tokio trimestro {0}", trimestroNr));
-            }
-
+            pazymiai1Trimestras.Add(pazymys);
         }
+        public void PridetiAntrotrimestroPazymi(int pazymys)
+        {
+            if (pazymys <= 0 || pazymys > 10)
+            {
+                return;
+            }
+            pazymiai2Trimestras.Add(pazymys);
+        }
+        public void PridetiTrecioTrimestroPazymi(int pazymys)
+        {
+            if (pazymys <= 0 || pazymys > 10)
+            {
+                return;
+            }
+            pazymiai3Trimestras.Add(pazymys);
+        }
+        
+        
         public void IstrintiPazymi(int trimestroNr, int pazymioEilesNr)
         {
             if (trimestroNr == 1)

@@ -14,7 +14,7 @@ namespace StudentuDienynas.test
             //Assign
             Pamoka pamoka = new Pamoka(1, "Matematika");
             //Act
-            pamoka.PridetiPazymi(1, 5);
+            pamoka.PridetiPirmoTrimestroPazymi(5);
             List<int> pirmoTrimestroPazymiai = pamoka.GrazintiTrimestroPazymius(1);
             //Assert
             Assert.AreEqual(pirmoTrimestroPazymiai.Count, 1);
@@ -27,9 +27,9 @@ namespace StudentuDienynas.test
             //Assign
             Pamoka pamoka = new Pamoka(1, "Matematika");
             //Act
-            pamoka.PridetiPazymi(1, 8);
-            pamoka.PridetiPazymi(1, 9);
-            pamoka.PridetiPazymi(1, 10);
+            pamoka.PridetiPirmoTrimestroPazymi(8);
+            pamoka.PridetiPirmoTrimestroPazymi(9);
+            pamoka.PridetiPirmoTrimestroPazymi(10);
             int pirmoTrimestroVidurkis = pamoka.PirmoTrimestroVidurkis();
             //Assert
             Assert.AreEqual(pirmoTrimestroVidurkis, 9);
@@ -40,7 +40,7 @@ namespace StudentuDienynas.test
             //Assign
             Pamoka pamoka = new Pamoka(1, "Matematika");
             //Act
-            pamoka.PridetiPazymi(1, -8);
+            pamoka.PridetiPirmoTrimestroPazymi(-8);
             int pirmoTrimestroVidurkis = pamoka.PirmoTrimestroVidurkis();
             List<int> pirmoTrimestroPazymiai = pamoka.GrazintiTrimestroPazymius(1);
             //Assert
@@ -53,9 +53,9 @@ namespace StudentuDienynas.test
             //Assign
             Pamoka pamoka = new Pamoka(1, "Matematika");
             //Act
-            pamoka.PridetiPazymi(2, 10);
-            pamoka.PridetiPazymi(2, 10);
-            pamoka.PridetiPazymi(2, 10);
+            pamoka.PridetiAntrotrimestroPazymi(10);
+            pamoka.PridetiAntrotrimestroPazymi(10);
+            pamoka.PridetiAntrotrimestroPazymi(10);
             int antroTrimestroVidurkis = pamoka.AntroTrimestroVidurkis();
             //Assert
             Assert.AreEqual(antroTrimestroVidurkis, 10);
