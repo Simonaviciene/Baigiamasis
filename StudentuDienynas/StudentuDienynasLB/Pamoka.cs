@@ -90,17 +90,28 @@ namespace StudentuDienynasLB
         
         public void IstrintiPazymi(int trimestroNr, int pazymioEilesNr)
         {
+            int sarasoNumeris = pazymioEilesNr - 1;
             if (trimestroNr == 1)
             {
-                pazymiai1Trimestras.RemoveAt(pazymioEilesNr);
+                if (sarasoNumeris >= 0 && sarasoNumeris < pazymiai1Trimestras.Count)
+                {
+                    pazymiai1Trimestras.RemoveAt(sarasoNumeris);
+                }
+                
             }
             else if (trimestroNr == 2)
             {
-                pazymiai2Trimestras.RemoveAt(pazymioEilesNr);
+                if (sarasoNumeris >= 0 && sarasoNumeris < pazymiai2Trimestras.Count)
+                {
+                    pazymiai2Trimestras.RemoveAt(sarasoNumeris);
+                }
             }
             else if (trimestroNr == 3)
             {
-                pazymiai3Trimestras.RemoveAt(pazymioEilesNr);
+                if (sarasoNumeris >= 0 && sarasoNumeris < pazymiai3Trimestras.Count)
+                {
+                    pazymiai3Trimestras.RemoveAt(sarasoNumeris);
+                }
             }
             else
             {
