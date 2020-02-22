@@ -52,6 +52,7 @@
     <Compile Include="PamokaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentasTests.cs" />
+    <Compile Include="AtaskaituGeneratoriusTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -10,9 +10,9 @@ namespace StudentuDienynasLB
     {
         public int ID { get; private set; }
         public string Pavadinimas { get; private set; }
-        private List<int> pazymiai1Trimestras;
-        private List<int> pazymiai2Trimestras;
-        private List<int> pazymiai3Trimestras;
+        public List<int> pazymiai1Trimestras;
+        public List<int> pazymiai2Trimestras;
+        public List<int> pazymiai3Trimestras;
 
         public Pamoka(int iD, string pavadinimas)
         {

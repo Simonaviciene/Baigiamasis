@@ -66,8 +66,19 @@ namespace StudentuDienynasLB
                 int trecioTrimestroVidurkis = pamoka.TrecioTrimestroVidurkis();
                 int metinis = pamoka.MetinisVidurkis();
 
+                StudentoAtaskaitosEilute studentoAtaskaitosEilute = new StudentoAtaskaitosEilute(
+                    pamokosPavadinimas,
+                    pirmoTrimestroPazymiai,
+                    antroTrimestroPazymiai,
+                    trecioTrimestroPazymiai,
+                    pirmoTrimestroVidurkis,
+                    antroTrimestroVidurkis,
+                    trecioTrimestroVidurkis,
+                    metinis);
+
+                studentoAtaskaita.Add(studentoAtaskaitosEilute);
             }
-                return null;
+            return studentoAtaskaita;
         }
     }
 }
