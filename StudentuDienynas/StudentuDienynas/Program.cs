@@ -9,6 +9,17 @@ namespace StudentuDienynas
 {
     class Program
     {
+        private const int VEIKSMAS_STUDENTU_PAMOKU_VALDYMAS = 1;
+        private const int PRIDETI_PAZYMI = 1;
+        private const int ISEITI_IS_PROGRAMOS = 0;
+        private const int ISTRINTI_PAZYMI = 2;
+        private const int PRIDETI_NAUJA_PAMOKA = 3;
+        private const int ATASKAITOS_SUVESTINE = 2;
+        private const int STUDENTU_VALDYMAS = 3;
+        private const int PRIDETI_NAUJA_STUDENTA = 1;
+        private const int STUDENTO_SUVESTINE = 2;
+
+
         static void Main(string[] args)
         {
 
@@ -17,17 +28,17 @@ namespace StudentuDienynas
             {
                 Console.Clear();
                 Console.WriteLine("Pasirinkite veiksma:");
-                Console.WriteLine("[1] - Mokiniu pamoku valdymas");
+                Console.WriteLine("[1] - Studentu pamoku valdymas");
                 Console.WriteLine("[2] - Parodyti visu studentu suvestine");
-                Console.WriteLine("[3] = Mokiniu Valdymas");
+                Console.WriteLine("[3] = Studentu Valdymas");
                 Console.WriteLine("[0] = Iseiti");
 
                 int veiksmas = Convert.ToInt32(Console.ReadLine());
-                if (veiksmas == 0)
+                if (veiksmas == ISEITI_IS_PROGRAMOS)
                 {
                     Environment.Exit(0);
                 }
-                else if (veiksmas == 1)
+                else if (veiksmas == VEIKSMAS_STUDENTU_PAMOKU_VALDYMAS)
                 {
                     Console.WriteLine("Pasirinkite veiksma:");
                     Console.WriteLine("[1] - Prideti pazymi");
@@ -44,7 +55,7 @@ namespace StudentuDienynas
                     ParodytiStudentoPamokuSarasa(studentas);
                     string pamokosPavadinimas = Console.ReadLine();
 
-                    if (pamokosVeiksmas == 1)
+                    if (pamokosVeiksmas == PRIDETI_PAZYMI)
                     {
                         Console.WriteLine("Iveskite trimestro Nr(1-3):");
                         int trimestroNr = Convert.ToInt32(Console.ReadLine());
@@ -54,7 +65,7 @@ namespace StudentuDienynas
 
                         Console.WriteLine("Pazymys pridetas {0}", pazymys);
                     }
-                    else if(pamokosVeiksmas == 2)
+                    else if(pamokosVeiksmas == ISTRINTI_PAZYMI)
                     {
                         Pamoka pamoka = studentas.GrazintiPamokaPagalPavadinima(pamokosPavadinimas);
                         Console.WriteLine("Iveskite trimestro Nr(1-3):");
@@ -66,7 +77,7 @@ namespace StudentuDienynas
                         Console.WriteLine("Itrinta");
 
                     }
-                    else if (pamokosVeiksmas == 3)
+                    else if (pamokosVeiksmas == PRIDETI_NAUJA_PAMOKA)
                     {
                         studentas.PridetiNaujaPamoka(pamokosPavadinimas);
                         Console.WriteLine("Pamoka {0} prideta: ", pamokosPavadinimas);
@@ -80,7 +91,7 @@ namespace StudentuDienynas
 
 
                 }
-                else if (veiksmas == 2)
+                else if (veiksmas == ATASKAITOS_SUVESTINE)
                 {
                     Console.WriteLine("Ataskaitos suvestine: ");
 
@@ -88,8 +99,8 @@ namespace StudentuDienynas
                     List<SuvestinesAtaskaitosEilute> suvestinesAtaskaitosEilutes = ataskaituGeneratorius.StudentuSuvestine();
                     foreach (var eilute in suvestinesAtaskaitosEilutes)
                     {
-                        Console.WriteLine("Mokinio Id: {0}", eilute.Id);
-                        Console.WriteLine("Mokino vardas pavarde: {0} {1}", eilute.Vardas, eilute.Pavarde);
+                        Console.WriteLine("Studento Id: {0}", eilute.Id);
+                        Console.WriteLine("Studento vardas pavarde: {0} {1}", eilute.Vardas, eilute.Pavarde);
                         Console.WriteLine("Pamokos pavadinimas: {0}", eilute.Pamoka);
                         Console.WriteLine("Trimestru suvestine: {0}, {1}, {2}", eilute.Trimestas1, eilute.Trimestas2, eilute.Trimestas3);
                         Console.WriteLine("Metinis: {0}\n", eilute.Metinis);
@@ -98,15 +109,14 @@ namespace StudentuDienynas
 
                     
                 }
-                else if( veiksmas == 3)
+                else if( veiksmas == STUDENTU_VALDYMAS)
                 {
                     Console.WriteLine("Pasirinkite veiksma: ");
                     Console.WriteLine("[1] - prideti studenta");
-                    Console.WriteLine("[2] - istrinti studenta");
-                    Console.WriteLine("[3] - studento suvestine");
+                    Console.WriteLine("[2] - studento suvestine");
 
                     int studentuSarasoValdymoVeiksmas = Convert.ToInt32(Console.ReadLine());
-                    if(studentuSarasoValdymoVeiksmas == 1)
+                    if(studentuSarasoValdymoVeiksmas == PRIDETI_NAUJA_STUDENTA)
                     {
                         Console.WriteLine("Iveskite naujo studento Id:");
                         int naujoStudentoId = Convert.ToInt32(Console.ReadLine());
@@ -118,11 +128,8 @@ namespace StudentuDienynas
                         Console.WriteLine("Naujas studentu sarasas:");
                         ParodytiStudentuSarasa(studentuRepozitorija.Retrieve());
                     }
-                    else if(studentuSarasoValdymoVeiksmas == 2)
-                    {
-                        Console.WriteLine("Istriname");
-                    }
-                    else if(studentuSarasoValdymoVeiksmas == 3)
+                    
+                    else if(studentuSarasoValdymoVeiksmas == STUDENTO_SUVESTINE)
                     {
                         ParodytiStudentuSarasa(studentuRepozitorija.Retrieve());
                         Console.WriteLine("Pasirinkite studento Id:");
